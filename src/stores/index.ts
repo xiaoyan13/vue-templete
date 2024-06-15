@@ -1,6 +1,8 @@
-import { defineStore } from 'pinia'
+import type { App } from 'vue'
+import { createPinia } from 'pinia'
 
-export const useCounterStore = defineStore('counter', () => {
+export function setupPinia(app: App) {
+  app.use(createPinia())
+}
 
-  return {}
-})
+export * from './counter'

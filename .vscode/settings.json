@@ -76,21 +76,19 @@
     "postcss"
   ],
   // see ./tailwind.json
-  "css.customData": [ ".vscode/tailwind.json" ],
+  "css.customData": [
+    ".vscode/tailwind.json"
+  ],
   // i18n
-  // "i18n-ally.localesPaths": [ "src/i18n" ],
-  // "i18n-ally.enabledFrameworks": ["vue"],
-  // "i18n-ally.extract.autoDetect": true, // i18n 点击启用默认不会自动 detect, 手动开启
-  // "i18n-ally.keystyle": "nested",
+  "i18n-ally.localesPaths": [ "src/i18n" ],
+  "i18n-ally.enabledFrameworks": ["vue"],
+  "i18n-ally.extract.autoDetect": true, // i18n 点击启用默认不会自动 detect, 手动开启
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.sourceLanguage": "zh", // 未被翻译的文字在翻译时，将文字填充到该语言中。
+  "i18n-ally.displayLanguage": "zh", // vsc 编辑器展示的语言
+  "i18n-ally.extract.keygenStyle": "camelCase",
+  "i18n-ally.indent": 2,
+  "i18n-ally.tabStyle": "space",
   // "i18n-ally.namespace": true,
   // "i18n-ally.sortKeys": true,
-  // "i18n-ally.sourceLanguage": "zh-cn",
-  // "i18n-ally.displayLanguage": "zh-cn",
-  // "i18n-ally.extract.keygenStyle": "camelCase",
-  // "i18n-ally.indent": 2,
-  // "i18n-ally.tabStyle": "space",
-  // "i18n-ally.theme.annotation": "rgba(153, 153, 153, .8)",
-  // "i18n-ally.theme.annotationBorder": "rgba(153, 153, 153, .8)",
-  // "i18n-ally.theme.annotationMissing": "#d37070",
-  // "i18n-ally.theme.annotationMissingBorder": "#d37070",
 }
