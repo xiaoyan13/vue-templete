@@ -8,11 +8,13 @@ import { setupI18n } from './i18n'
 
 function bootstrap() {
     const app = createApp(App)
+
     // setup plugins
     setupPinia(app);
-    setupRouter(app);
     setupI18n(app)
-    // mount to '#app'
+    setupRouter(app);
+
+    // mount
     app.mount('#app')
 }
 
