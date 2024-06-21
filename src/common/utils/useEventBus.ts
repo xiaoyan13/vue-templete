@@ -22,6 +22,7 @@ export interface EventBus<T extends Events> {
         type: Key,
         event: T[Key]
     ): void
+    once<Key extends keyof T>(type: Key, handler: Handler<T[Key]>): void;
 }
 
 export default function useEventBus<T extends Events>(
@@ -31,12 +32,12 @@ export default function useEventBus<T extends Events>(
     const eventBus: EventBus<T> = {
         all,
         on<Key extends keyof T>(type: Key, handler: Handler<T[Key]>) {
-            // type 被推断为了 keyof T 类型，产生了类型丢失...
+            // type 被推断为了 keyof T 类型
             const handlers: Handler<T[Key]>[] | undefined = all.get(type);
             if (handlers) {
                 handlers.push(handler);
             } else {
-                // type 被推断为了 keyof T 类型，产生了类型丢失...所以触发了逆变
+                // type 被推断为了 keyof T 类型，产生了类型丢失 所以触发了逆变
                 all.set(type, [handler] as Handler<T[keyof T]>[]);
             }
         },
@@ -55,6 +56,13 @@ export default function useEventBus<T extends Events>(
             if (handlers) {
                 [...handlers].map(handler => handler(event));
             }
+        },
+        once<Key extends keyof T>(type: Key, handler: Handler<T[Key]>) {
+            let _handler = (event: T[Key]) => {
+                this.off(type, _handler);
+                handler(event)
+            }
+            return this.on(type, _handler);
         }
     }
     return eventBus
