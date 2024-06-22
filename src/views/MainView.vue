@@ -1,12 +1,9 @@
-<script setup lang="ts">
-
-</script>
-
+<script setup lang="ts"></script>
 
 <template>
-    <div id="main-view" class="text-sky-400">
-      {{ $t('hello-world') }} 
-    </div>
+  <div id="main-view" class="text-sky-400">
+    {{ $t('hello-world') }}
+  </div>
 </template>
 
 <style scoped>

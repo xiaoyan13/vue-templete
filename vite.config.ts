@@ -1,1 +1,1 @@
-export { default } from './vite'
+export { default } from './vite';

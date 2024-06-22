@@ -1,8 +1,8 @@
-import type { App } from 'vue'
-import { createPinia } from 'pinia'
+import type { App } from 'vue';
+import { createPinia } from 'pinia';
 
 export function setupPinia(app: App) {
-  app.use(createPinia())
+  app.use(createPinia());
 }
 
-export * from './counter'
+export * from './counter';
