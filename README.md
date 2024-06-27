@@ -26,7 +26,7 @@
 ## Feature
 
 - 实现了极小的 `eventBus`
-- 对 vue 本身提供的依赖与注入函数进行了二次封装，使用局部上下文来代替全局状态管理；
+- 对 vue 本身提供的 _provide_ 和 _inject_ 进行了二次封装，使用局部上下文来代替全局状态管理；
 - 开箱即用的 `axios` 的请求封装, 并支持多环境切换: `mock`, `dev`, `prod`。
 - 项目提供了开箱即用的多语言支持, 内置 [`vue-i18n@9`](https://github.com/intlify/vue-i18n) 的配置。
 - 项目结构目录高度标准化, 认为**约定大于配置**.
@@ -51,7 +51,3 @@ pnpm dev
 pnpm lint
 pnpm lint:inspect
 ```
-
-### TODO
-
-- [ ] 支持 jsx 开发
