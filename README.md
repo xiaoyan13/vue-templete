@@ -12,7 +12,19 @@
 - 提供了一些有用的 `.vscode` 工程配置: `tailwindcss` 的 `@` 指令语法提示支持和 `vue` 的 `code-snippets`.
 - 一些(自认为)通用的 `vite` 插件.
 
-**代码适用于 vscode**. 必需安装的 `vsc` 插件:
+## Feature
+
+- 实现了极小的 _eventBus_
+- 对 vue 本身提供的 _provide_ 和 _inject_ 进行了二次封装，使用局部上下文来代替全局状态管理；
+- 开箱即用的 `axios` 的请求封装, 并支持多环境切换: `mock`, `dev`, `prod`。
+- 项目提供了开箱即用的多语言支持, 内置 [`vue-i18n@9`](https://github.com/intlify/vue-i18n) 的配置。
+- 项目结构目录高度标准化, 认为**约定大于配置**.
+
+## Things Needed
+
+### VSCode configure
+
+**代码库适用于 vscode**. 必需安装的 `vsc` 插件:
 
 - vue 官方插件
 - eslint 官方插件
@@ -23,13 +35,9 @@
 
 - 可选的插件：`i18n`
 
-## Feature
+### pnpm
 
-- 实现了极小的 `eventBus`
-- 对 vue 本身提供的 _provide_ 和 _inject_ 进行了二次封装，使用局部上下文来代替全局状态管理；
-- 开箱即用的 `axios` 的请求封装, 并支持多环境切换: `mock`, `dev`, `prod`。
-- 项目提供了开箱即用的多语言支持, 内置 [`vue-i18n@9`](https://github.com/intlify/vue-i18n) 的配置。
-- 项目结构目录高度标准化, 认为**约定大于配置**.
+脚手架使用 `pnpm` 作为包管理器。作为推荐，可以尝试使用 [corepack](https://github.com/nodejs/corepack) 来维护包管理器。
 
 ## Usage
 
