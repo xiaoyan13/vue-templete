@@ -13,8 +13,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "prettier . --write && eslint . --fix",
-    "lint:inspect": "npx @eslint/config-inspector@latest",
-    "preinstall": "npx only-allow pnpm",
+    "lint:inspect": "pnpx @eslint/config-inspector@latest",
+    "preinstall": "pnpx only-allow pnpm",
     "test": "node ./test.mjs"
   },
   "dependencies": {
