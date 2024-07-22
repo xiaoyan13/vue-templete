@@ -4,6 +4,9 @@ import tseslint from 'typescript-eslint';
 
 import pluginVue from 'eslint-plugin-vue';
 
+/**
+ * @type {import('eslint').Linter.FlatConfig[]}
+ */
 const ts = [
   ...tseslint.configs.recommended.map((config) => ({
     ...config,
@@ -19,6 +22,9 @@ const ts = [
   },
 ];
 
+/**
+ * @type {import('eslint').Linter.FlatConfig[]}
+ */
 const vue = [
   ...pluginVue.configs['flat/recommended'].map((config, index) => ({
     ...config,
@@ -42,6 +48,9 @@ const ignore = [
   },
 ];
 
+/**
+ * @type {import('eslint').Linter.FlatConfig[]}
+ */
 export default [
   // default
   {

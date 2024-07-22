@@ -6,6 +6,9 @@
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
+    // 约定：src 下所有的 import 语句都加上后缀 .ts, 以优化构建性能
+    "allowImportingTsExtensions": true,
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
