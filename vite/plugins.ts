@@ -7,7 +7,8 @@ import { visualizer } from 'rollup-plugin-visualizer';
 const plugins: PluginOption[] = [
   vue(),
   vueJsx(),
-  // https://github.com/unplugin/unplugin-auto-import
+
+  // @see https://github.com/unplugin/unplugin-auto-import
   AutoImport({
     include: [
       /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
@@ -16,8 +17,9 @@ const plugins: PluginOption[] = [
     imports: ['vue', 'vue-router'],
     dts: 'src/typings/auto-imports.d.ts',
   }),
-  // https://github.com/btd/rollup-plugin-visualizer
-  visualizer({ open: true }), // 自动开启分析页面
+  
+  // @see https://github.com/btd/rollup-plugin-visualizer
+  visualizer({ open: true }),
 ];
 
 export default plugins;

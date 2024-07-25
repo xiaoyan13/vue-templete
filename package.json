@@ -15,7 +15,8 @@
     "lint": "prettier . --write && eslint . --fix",
     "lint:inspect": "pnpx @eslint/config-inspector@latest",
     "preinstall": "pnpx only-allow pnpm",
-    "test": "node ./test.mjs"
+    "test": "node ./test.mjs",
+    "perf": "vite --profile"
   },
   "dependencies": {
     "@tsconfig/node20": "^20.1.4",

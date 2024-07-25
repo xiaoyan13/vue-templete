@@ -1,21 +1,22 @@
-import { fileURLToPath, URL } from 'node:url';
-import plugins from './plugins';
-import { ConfigEnv, defineConfig } from 'vite';
-import { UserConfig } from 'vite';
+import { ConfigEnv, defineConfig, loadEnv, UserConfig } from 'vite';
+import viteBaseConfig from './vite.base.config';
+import viteDevConfig from './vite.dev.config';
+import viteProdConfig from './vite.prod.config';
+import path from 'path';
 
-const baseCfg: UserConfig = {
-  plugins,
-  resolve: {
-    alias: {
-      // use URL because ../src is browser env
-      '@': fileURLToPath(new URL('../src', import.meta.url)),
-    },
-  },
+type Mode = 'development' | 'production';
+
+const configMap = {
+  development: { ...viteBaseConfig, ...viteDevConfig },
+  production: { ...viteBaseConfig, ...viteProdConfig },
 };
 
-const config = defineConfig(({ command, mode }: ConfigEnv) => {
-  console.log(process.env.NODE_ENV);
-  return baseCfg;
+const config = defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
+  /**
+   * type of mode: 'development' | 'production'
+   */
+  const env = loadEnv(mode, path.resolve(process.cwd(), './env'), '');
+  return configMap[mode as Mode];
 });
 
 export default config;
