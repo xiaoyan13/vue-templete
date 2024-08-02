@@ -1,8 +1,15 @@
 import axios from 'axios';
 import type { AxiosRequestConfig } from 'axios';
 import { reqInterceptor, respInterceptor } from './interceptor';
+import type { ResultData } from './types';
 
-const BASE_URL = '';
+const prefixMap = {
+  development: 'https://localhost:7003',
+  debug: '',
+  production: 'https://www.your-domain.com',
+};
+
+const BASE_URL = prefixMap[import.meta.env.VITE_HTTP_MODE];
 
 const baseConfig: AxiosRequestConfig = {
   baseURL: BASE_URL,
@@ -12,22 +19,39 @@ const baseConfig: AxiosRequestConfig = {
   },
 };
 
-const axiosInstance = axios.create(baseConfig);
+const service = axios.create(baseConfig);
 
 // 请求预处理
-axiosInstance.interceptors.request.use(
-  reqInterceptor,
-  (error: unknown): unknown => {
-    return Promise.reject(error);
-  },
-);
+service.interceptors.request.use(reqInterceptor, (error: unknown): unknown => {
+  return Promise.reject(error);
+});
 
 // 响应预处理
-axiosInstance.interceptors.response.use(
+service.interceptors.response.use(
   respInterceptor,
   (error: unknown): unknown => {
     return Promise.reject(error);
   },
 );
 
-export { axiosInstance };
+export function post<T>(url: string, params?: object): Promise<ResultData<T>> {
+  const res = service.post<T, ResultData<T>>(url, { params });
+  return res;
+}
+
+export function del<T>(url: string, params?: object): Promise<ResultData<T>> {
+  const res = service.delete<T, ResultData<T>>(url, { params });
+  return res;
+}
+
+export function get<T>(url: string, params?: object): Promise<ResultData<T>> {
+  const res = service.get<T, ResultData<T>>(url, { params });
+  return res;
+}
+
+export function put<T>(url: string, params?: object): Promise<ResultData<T>> {
+  const res = service.put<T, ResultData<T>>(url, { params });
+  return res;
+}
+
+export { service };

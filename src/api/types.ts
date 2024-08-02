@@ -1,4 +1,4 @@
-export type QueryData = object | string;
+export type QueryData = object | string | number | undefined | null | unknown;
 
 // RESTful API
 export interface ResultData<T = unknown> {

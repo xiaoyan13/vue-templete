@@ -16,6 +16,7 @@ const config = defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
    * type of mode: 'development' | 'production'
    */
   const env = loadEnv(mode, path.resolve(process.cwd(), './env'), '');
+  console.log(env.NODE_ENV);
   return configMap[mode as Mode];
 });
 

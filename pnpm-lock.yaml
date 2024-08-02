@@ -92,6 +92,10 @@ importers:
       vue-tsc:
         specifier: ^2.0.21
         version: 2.0.21(typescript@5.5.2)
+    devDependencies:
+      vite-plugin-compression2:
+        specifier: ^1.1.3
+        version: 1.1.3(rollup@4.18.0)
 
 packages:
 
@@ -1765,6 +1769,9 @@ packages:
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+
+  vite-plugin-compression2@1.1.3:
+    resolution: {integrity: sha512-I5XVfEdGY9ZQqRjGRS/sokKofapH7FKHRyrAulMqDyGaOgWqrABGS6eyWsKwWLPKv13cvz/a1F5z9yY3a3uIkw==}
 
   vite@5.3.1:
     resolution: {integrity: sha512-XBmSKRLXLxiaPYamLv3/hnP/KXDai1NDexN0FpkTaZXTfycHvkRHoenpgl/fvuK/kPbB6xAgoyiryAhQNxYmAQ==}
@@ -3591,6 +3598,12 @@ snapshots:
       punycode: 2.3.1
 
   util-deprecate@1.0.2: {}
+
+  vite-plugin-compression2@1.1.3(rollup@4.18.0):
+    dependencies:
+      '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
+    transitivePeerDependencies:
+      - rollup
 
   vite@5.3.1(@types/node@20.14.7):
     dependencies:

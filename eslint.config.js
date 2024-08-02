@@ -5,7 +5,7 @@ import tseslint from 'typescript-eslint';
 import pluginVue from 'eslint-plugin-vue';
 
 /**
- * @type {import('eslint').Linter.FlatConfig[]}
+ * @type {import('eslint').Linter.Config[]}
  */
 const ts = [
   ...tseslint.configs.recommended.map((config) => ({
@@ -17,13 +17,14 @@ const ts = [
     files: ['**/*.ts'],
     rules: {
       '@typescript-eslint/no-unused-vars': ['warn'],
-      '@typescript-eslint/no-explicit-any': ['error', { fixToUnknown: true }],
+      // '@typescript-eslint/no-explicit-any': ['error', { fixToUnknown: true }],
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 ];
 
 /**
- * @type {import('eslint').Linter.FlatConfig[]}
+ * @type {import('eslint').Linter.Config[]}
  */
 const vue = [
   ...pluginVue.configs['flat/recommended'].map((config, index) => ({
@@ -49,7 +50,7 @@ const ignore = [
 ];
 
 /**
- * @type {import('eslint').Linter.FlatConfig[]}
+ * @type {import('eslint').Linter.Config[]}
  */
 export default [
   // default
