@@ -32,6 +32,13 @@ const vue = [
     files: ['**/*.vue'],
     name: `vue-eslint-official-${index}`,
   })),
+  {
+    name: 'custom-vue-config',
+    files: ['**/*.vue'],
+    rules: {
+      'vue/multi-word-component-names': ['off'],
+    },
+  },
 ];
 
 // 禁用 eslint 部分格式化
